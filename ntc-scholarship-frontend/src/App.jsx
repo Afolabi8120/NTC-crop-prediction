@@ -36,20 +36,6 @@ function App() {
     }
   }
 
-  // const handleSubmit = async (e) => {
-
-  //   e.preventDefault()
-
-  //   try {
-  //     const response = await axios.post("http://localhost:3000/api/v1/predict", {formData}, {withCredentials: false})
-      
-  //     setMessage(response?.data?.message)
-  //     console.log(response)
-  //   } catch (err) {
-  //     console.error(err)
-  //     setMessage(err?.response?.data?.message)
-  //   }
-  // }
   console.log(formData)
 
   return (
@@ -58,16 +44,16 @@ function App() {
       <form onSubmit={ (e) => handleSubmit(e)} style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
         <h3>Crop Prediction</h3>
         <div className="form-field">
-          <input type="text" id="temperature" name="temperature" placeholder="Temperature" onChange={handleInput}/>
+          <input type="text" id="temperature" name="temperature" placeholder="Temperature" required onChange={handleInput}/>
         </div>
         <div className="form-field">
-          <input type="text" id="humidity" name="humidity" placeholder="Humidity" onChange={handleInput}/>
+          <input type="text" id="humidity" name="humidity" placeholder="Humidity" required onChange={handleInput}/>
         </div>
         <div className="form-field">
-          <input type="text" id="ph" name="ph" placeholder="Soil PH" onChange={handleInput}/>
+          <input type="text" id="ph" name="pH" placeholder="Soil PH" required onChange={handleInput}/>
         </div>
         <div className="form-field">
-          <input type="text" id="rainfall" name="rainfall" placeholder="Rain Fall" onChange={handleInput}/>
+          <input type="text" id="rainfall" name="rainfall" placeholder="Rain Fall" required onChange={handleInput}/>
         </div>
         <div className="form-field">
           <button type="submit">Predict</button>

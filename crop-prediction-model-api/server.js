@@ -41,14 +41,16 @@ app.get('/api/v1/predict', (req, res) => {
 app.post('/api/v1/predict', async (req, res) => {
   const { temperature, humidity, pH, rainfall } = req.body
 
-  // if (
-  //   typeof temperature !== 'number' ||
-  //   typeof humidity !== 'number' ||
-  //   typeof pH !== 'number' ||
-  //   typeof rainfall !== 'number'
-  // ) {
-  //   return res.status(400).json({response: "Only numbers are allowed"});
-  // }
+  if (
+    typeof temperature !== 'number' ||
+    typeof humidity !== 'number' ||
+    typeof pH !== 'number' ||
+    typeof rainfall !== 'number'
+  ) {
+    return res.status(400).json({message: "Only integers values are allowed"});
+  }
+
+  console.log(typeof(temperature))
 
   const features = [temperature, humidity, pH, rainfall]
   console.log(features);
@@ -67,8 +69,5 @@ app.post('/api/v1/predict', async (req, res) => {
 })
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
-
-// Example usage
-// predictWithPythonModel([5.1, 3.5, 1.4, 0.2]) // assuming you're predicting on iris-like data
 
 app.listen(port, () => console.log(`Server is running on port: ${port}`))
