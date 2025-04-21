@@ -41,14 +41,14 @@ app.get('/api/v1/predict', (req, res) => {
 app.post('/api/v1/predict', async (req, res) => {
   const { temperature, humidity, pH, rainfall } = req.body
 
-  if (
-    typeof temperature !== 'number' ||
-    typeof humidity !== 'number' ||
-    typeof pH !== 'number' ||
-    typeof rainfall !== 'number'
-  ) {
-    return res.status(400).json({message: "Only integers values are allowed"});
-  }
+  // if (
+  //   typeof temperature !== 'number' ||
+  //   typeof humidity !== 'number' ||
+  //   typeof pH !== 'number' ||
+  //   typeof rainfall !== 'number'
+  // ) {
+  //   return res.status(400).json({message: "Only integers values are allowed"});
+  // }
 
   console.log(typeof(temperature))
 
